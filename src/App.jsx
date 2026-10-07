@@ -8,10 +8,11 @@ const initialTemperature = 20;
 function App() {
   const [temperature, setTemperature] = useState(initialTemperature);
   function handleAddTemperature() {
-    setTemperature((actual) => actual + 1);
+    setTemperature((actual) => (actual < 28 ? actual + 1 : actual));
   }
+
   function handleSubTemperature() {
-    setTemperature((actual) => actual - 1);
+    setTemperature((actual) => (actual > 16 ? actual - 1 : actual));
   }
   function handleResetTemperature() {
     setTemperature(initialTemperature);

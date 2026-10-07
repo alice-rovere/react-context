@@ -8,23 +8,30 @@ export default function ThermostatSection() {
     handleResetTemperature,
     handleSubTemperature,
   } = useContext(ThermostaContext);
+  const label =
+    temperature < 22
+      ? "Freddo"
+      : temperature < 25
+        ? "Comfort"
+        : "Caldo";
   return (
     <section className="container flex-grow-1 d-flex align-items-center justify-content-center">
       <div className="card shadow-sm text-center p-4">
         <h4 className="mb-4">Temperatura attuale:</h4>
         <p className="fs-3">{temperature} °C</p>
+        <p>{label}</p>
         <div className="d-flex justify-content-center gap-2">
           <button
             type="button"
             onClick={handleAddTemperature}
-            className="btn btn-primary"
+            className={`btn btn-primary ${temperature < 28 ? "" : "disabled"}`}
           >
             Più
           </button>
           <button
             type="button"
             onClick={handleSubTemperature}
-            className="btn btn-outline-primary"
+            className={`btn btn-outline-primary ${temperature > 16 ? "" : "disabled"}`}
           >
             Meno
           </button>
