@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import ThermostaContext from "../Contexts/ThermostContext";
+
 export default function Sidebar() {
+  const { handleResetTemperature } = useContext(ThermostaContext);
   return (
     <div
       className="bg-dark text-white min-vh-100 p-3 d-flex flex-column "
@@ -13,9 +17,15 @@ export default function Sidebar() {
             aria-current="page"
           >
             <i className="bi bi-house-door me-3 fs-5"></i>
-            XXXXXX
           </a>
         </li>
+        <button
+          type="button"
+          onClick={handleResetTemperature}
+          className="btn btn-secondary"
+        >
+          Resetta la temperatura
+        </button>
       </ul>
     </div>
   );
