@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import ThermostaContext from "../../Contexts/ThermostContext";
+import { useThermostat } from "../../Contexts/ThermostContext";
 
 export default function ThermostatSection() {
   const {
@@ -7,13 +6,9 @@ export default function ThermostatSection() {
     handleAddTemperature,
     handleResetTemperature,
     handleSubTemperature,
-  } = useContext(ThermostaContext);
+  } = useThermostat();
   const label =
-    temperature < 22
-      ? "Freddo"
-      : temperature < 25
-        ? "Comfort"
-        : "Caldo";
+    temperature < 22 ? "Freddo" : temperature < 25 ? "Comfort" : "Caldo";
   return (
     <section className="container flex-grow-1 d-flex align-items-center justify-content-center">
       <div className="card shadow-sm text-center p-4">

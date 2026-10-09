@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import ThermostaContext from "../Contexts/ThermostContext";
+import { useThermostat } from "../Contexts/ThermostContext";
 
 export default function Sidebar() {
-  const { handleResetTemperature } = useContext(ThermostaContext);
+  const { handleResetTemperature } = useThermostat();
   return (
     <div
       className="bg-dark text-white min-vh-100 p-3 d-flex flex-column "
